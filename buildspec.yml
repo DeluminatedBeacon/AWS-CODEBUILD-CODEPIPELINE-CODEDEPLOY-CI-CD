@@ -1,0 +1,34 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_REGISTRY_USERNAME: DeluminatedBeacon
+    DOCKER_REGISTRY_PASSWORD: Hl894jlhhh1.tvu
+    DOCKER_REGISTRY_URL: deluminatedbeacon/awsprojectforsalman123
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r python-app/requirements.txt
+  build:
+    commands:
+      - echo "Running tests..."
+      - cd python-app/
+      - echo "Building Docker image..."
+      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
+      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest" .
+      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'python-app'
+
+
