@@ -2,9 +2,9 @@ version: 0.2
 
 env:
   parameter-store:
-    DOCKER_REGISTRY_USERNAME: /myapp/docker-credentials/username
-    DOCKER_REGISTRY_PASSWORD: /myapp/docker-credentials/password
-    DOCKER_REGISTRY_URL: /myapp/docker-registry/url
+    DOCKER_REGISTRY_USERNAME: DeluminatedBeacon
+    DOCKER_REGISTRY_PASSWORD: Hl894jlhhh1.tvu
+    DOCKER_REGISTRY_URL: deluminatedbeacon/awsprojectforsalman123
 phases:
   install:
     runtime-versions:
