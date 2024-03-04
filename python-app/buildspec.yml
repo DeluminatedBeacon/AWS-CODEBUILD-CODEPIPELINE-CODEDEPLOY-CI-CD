@@ -5,6 +5,7 @@ env:
     DOCKER_REGISTRY_USERNAME: DeluminatedBeacon
     DOCKER_REGISTRY_PASSWORD: Hl894jlhhh1.tvu
     DOCKER_REGISTRY_URL: deluminatedbeacon/awsprojectforsalman123
+
 phases:
   install:
     runtime-versions:
@@ -24,8 +25,10 @@ phases:
   post_build:
     commands:
       - echo "Build completed successfully!"
+
 artifacts:
   files:
     - '**/*'
   base-directory: 'python-app'
+
 
